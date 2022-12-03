@@ -9,8 +9,6 @@ import me.filoghost.fcommons.Preconditions;
 import me.filoghost.fcommons.logging.Log;
 import me.filoghost.holographicdisplays.core.CorePreconditions;
 import me.filoghost.holographicdisplays.nms.common.entity.ItemNMSPacketEntity;
-import me.filoghost.holographicdisplays.core.tracking.ItemLineTracker;
-import me.filoghost.holographicdisplays.core.tracking.LineTrackerManager;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
@@ -24,19 +22,12 @@ public abstract class BaseItemHologramLine extends BaseClickableHologramLine {
         setItemStack(itemStack);
     }
 
-    @Override
-    public ItemLineTracker createTracker(LineTrackerManager trackerManager) {
-        return trackerManager.startTracking(this);
-    }
-
     public void onPickup(Player player) {
-        if (hasPickupCallback() && canInteract(player)) {
-            try {
-                invokePickupCallback(player);
-            } catch (Throwable t) {
-                Log.warning("The plugin " + getCreatorPlugin().getName() + " generated an exception"
-                        + " when the player " + player.getName() + " picked up an item from a hologram.", t);
-            }
+        try {
+            invokePickupCallback(player);
+        } catch (Throwable t) {
+            Log.warning("The plugin " + getCreatorPlugin().getName() + " generated an exception"
+                    + " when the player " + player.getName() + " picked up an item from a hologram.", t);
         }
     }
 

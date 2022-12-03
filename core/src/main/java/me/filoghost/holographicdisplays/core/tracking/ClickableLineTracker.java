@@ -10,6 +10,8 @@ import me.filoghost.holographicdisplays.core.base.BaseClickableHologramLine;
 import me.filoghost.holographicdisplays.core.listener.LineClickListener;
 import me.filoghost.holographicdisplays.nms.common.NMSManager;
 import me.filoghost.holographicdisplays.nms.common.entity.ClickableNMSPacketEntity;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.MustBeInvokedByOverriders;
 
 public abstract class ClickableLineTracker<T extends Viewer> extends LineTracker<T> {
@@ -27,8 +29,20 @@ public abstract class ClickableLineTracker<T extends Viewer> extends LineTracker
         this.lineClickListener = lineClickListener;
     }
 
+    public boolean isInClickRange(Player player) {
+        Location playerLocation = player.getLocation();
+        PositionCoordinates positionCoordinates = getLine().getCoordinates();
+
+        double xDiff = playerLocation.getX() - positionCoordinates.getX();
+        double yDiff = playerLocation.getY() + 1.3 - positionCoordinates.getY(); // Use shoulder height
+        double zDiff = playerLocation.getZ() - positionCoordinates.getZ();
+
+        double distanceSquared = (xDiff * xDiff) + (yDiff * yDiff) + (zDiff * zDiff);
+        return distanceSquared < 5 * 5;
+    }
+
     @Override
-    protected abstract BaseClickableHologramLine getLine();
+    public abstract BaseClickableHologramLine getLine();
 
     @MustBeInvokedByOverriders
     @Override
@@ -47,7 +61,7 @@ public abstract class ClickableLineTracker<T extends Viewer> extends LineTracker
             this.spawnClickableEntity = spawnClickableEntity;
             this.spawnClickableEntityChanged = true;
             if (spawnClickableEntity) {
-                lineClickListener.registerLine(clickableEntity.getID(), getLine());
+                lineClickListener.registerLine(clickableEntity.getID(), this);
             } else {
                 lineClickListener.unregisterLine(clickableEntity.getID());
             }
