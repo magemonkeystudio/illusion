@@ -54,8 +54,8 @@ body:
   - type: input
     attributes:
       label: "Holographic Displays version"
-      description: "Output of the command `/version HolographicDisplays`."
-      placeholder: "HolographicDisplays version 2.4.8-SNAPSHOT-b174"
+      description: "Output of the command `/version ProHolographicDisplays`."
+      placeholder: "ProHolographicDisplays version 2.4.8-SNAPSHOT-b174"
     validations:
       required: true
 

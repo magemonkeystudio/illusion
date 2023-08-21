@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>me.filoghost.holographicdisplays</groupId>
-        <artifactId>holographicdisplays-example</artifactId>
+        <groupId>com.promcteam</groupId>
+        <artifactId>proholographicdisplays-example</artifactId>
         <version>3.0.3</version>
     </parent>
 
-    <artifactId>holographicdisplays-example-powerups</artifactId>
-    <name>HolographicDisplays Example PowerUps</name>
+    <artifactId>proholographicdisplays-example-powerups</artifactId>
+    <name>ProHolographicDisplays Example PowerUps</name>
 
 </project>

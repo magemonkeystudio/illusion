@@ -4,18 +4,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>me.filoghost.holographicdisplays</groupId>
-        <artifactId>holographicdisplays-nms</artifactId>
+        <groupId>com.promcteam</groupId>
+        <artifactId>proholographicdisplays-nms</artifactId>
         <version>3.0.3</version>
     </parent>
 
-    <artifactId>holographicdisplays-nms-v1_20_r1</artifactId>
-    <name>HolographicDisplays NMS v1_20_R1</name>
+    <artifactId>proholographicdisplays-nms-v1_20_r1</artifactId>
+    <name>ProHolographicDisplays NMS v1_20_R1</name>
 
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>holographicdisplays-nms-common</artifactId>
+            <artifactId>proholographicdisplays-nms-common</artifactId>
         </dependency>
 
         <dependency>

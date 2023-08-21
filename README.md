@@ -17,8 +17,8 @@ Development Builds: https://ci.codemc.io/job/filoghost/job/HolographicDisplays
 
 ```xml
 <dependency>
-    <groupId>me.filoghost.holographicdisplays</groupId>
-    <artifactId>holographicdisplays-api</artifactId>
+    <groupId>com.promcteam</groupId>
+    <artifactId>proholographicdisplays-api</artifactId>
     <version>3.0.0</version>
     <scope>provided</scope>
 </dependency>
@@ -32,7 +32,7 @@ maven {
 ```
 
 ```groovy
-compileOnly 'me.filoghost.holographicdisplays:holographicdisplays-api:3.0.0'
+compileOnly 'com.promcteam:proholographicdisplays-api:3.0.0'
 ```
 
 ## License

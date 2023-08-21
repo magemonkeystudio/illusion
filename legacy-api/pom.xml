@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>me.filoghost.holographicdisplays</groupId>
-        <artifactId>holographicdisplays-parent</artifactId>
+        <groupId>com.promcteam</groupId>
+        <artifactId>proholographicdisplays-parent</artifactId>
         <version>3.0.3</version>
     </parent>
 
-    <artifactId>holographicdisplays-legacy-api</artifactId>
+    <artifactId>proholographicdisplays-legacy-api</artifactId>
     <name>HolographicDisplays Legacy API</name>
     <packaging>pom</packaging>
 
@@ -21,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>holographicdisplays-api</artifactId>
+            <artifactId>proholographicdisplays-api</artifactId>
         </dependency>
 
         <dependency>

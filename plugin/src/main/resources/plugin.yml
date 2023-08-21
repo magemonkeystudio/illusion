@@ -1,13 +1,14 @@
-name: HolographicDisplays
+name: ProHolographicDisplays
 main: me.filoghost.holographicdisplays.plugin.HolographicDisplays
 author: filoghost
 version: ${pluginVersion}
 api-version: 1.13
+provides: [HolographicDisplays]
 
 softdepend: [PlaceholderAPI]
 
 commands:
    holograms:
-      description: Main command for HolographicDisplays.
+      description: Main command for ProHolographicDisplays.
       usage: /<command> (Startup error)
       aliases: [hd, holo, hologram, holograms]

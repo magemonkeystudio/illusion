@@ -4,28 +4,28 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>me.filoghost.holographicdisplays</groupId>
-        <artifactId>holographicdisplays-parent</artifactId>
+        <groupId>com.promcteam</groupId>
+        <artifactId>proholographicdisplays-parent</artifactId>
         <version>3.0.3</version>
     </parent>
 
-    <artifactId>holographicdisplays-plugin</artifactId>
-    <name>HolographicDisplays Plugin</name>
+    <artifactId>proholographicdisplays-plugin</artifactId>
+    <name>ProHolographicDisplays Plugin</name>
 
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>holographicdisplays-api</artifactId>
+            <artifactId>proholographicdisplays-api</artifactId>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>holographicdisplays-common</artifactId>
+            <artifactId>proholographicdisplays-common</artifactId>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>holographicdisplays-core</artifactId>
+            <artifactId>proholographicdisplays-core</artifactId>
         </dependency>
 
         <dependency>

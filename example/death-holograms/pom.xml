@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>me.filoghost.holographicdisplays</groupId>
-        <artifactId>holographicdisplays-example</artifactId>
+        <groupId>com.promcteam</groupId>
+        <artifactId>proholographicdisplays-example</artifactId>
         <version>3.0.3</version>
     </parent>
 
-    <artifactId>holographicdisplays-example-deathholograms</artifactId>
-    <name>HolographicDisplays Example DeathHolograms</name>
+    <artifactId>proholographicdisplays-example-deathholograms</artifactId>
+    <name>ProHolographicDisplays Example DeathHolograms</name>
 
 </project>

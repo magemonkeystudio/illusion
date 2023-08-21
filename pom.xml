@@ -3,9 +3,9 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.filoghost.holographicdisplays</groupId>
-    <artifactId>holographicdisplays-parent</artifactId>
-    <name>HolographicDisplays Parent</name>
+    <groupId>com.promcteam</groupId>
+    <artifactId>proholographicdisplays-parent</artifactId>
+    <name>ProHolographicDisplays Parent</name>
     <version>3.0.3</version>
     <packaging>pom</packaging>
 
@@ -77,133 +77,133 @@
         <dependencies>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-api</artifactId>
+                <artifactId>proholographicdisplays-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-common</artifactId>
+                <artifactId>proholographicdisplays-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-core</artifactId>
+                <artifactId>proholographicdisplays-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-legacy-api-v1</artifactId>
+                <artifactId>proholographicdisplays-legacy-api-v1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-legacy-api-v2</artifactId>
+                <artifactId>proholographicdisplays-legacy-api-v2</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-common</artifactId>
+                <artifactId>proholographicdisplays-nms-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_8_r3</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_8_r3</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_9_r2</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_9_r2</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_10_r1</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_10_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_11_r1</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_11_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_12_r1</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_12_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_13_r2</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_13_r2</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_14_r1</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_14_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_15_r1</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_15_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_16_r3</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_16_r3</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_17_r1</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_17_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_18_r1</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_18_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_18_r2</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_18_r2</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_19_r1</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_19_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_19_r2</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_19_r2</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_19_r3</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_19_r3</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>holographicdisplays-nms-v1_20_r1</artifactId>
+                <artifactId>proholographicdisplays-nms-v1_20_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
