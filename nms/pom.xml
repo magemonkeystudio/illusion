@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.promcteam</groupId>
         <artifactId>proholographicdisplays-parent</artifactId>
-        <version>3.0.3</version>
+        <version>3.0.4-SNAPSHOT</version>
     </parent>
 
     <artifactId>proholographicdisplays-nms</artifactId>
@@ -31,6 +31,7 @@
         <module>v1_19_r2</module>
         <module>v1_19_r3</module>
         <module>v1_20_r1</module>
+        <module>v1_20_r2</module>
     </modules>
 
     <dependencies>

@@ -6,7 +6,7 @@
     <groupId>com.promcteam</groupId>
     <artifactId>proholographicdisplays-parent</artifactId>
     <name>ProHolographicDisplays Parent</name>
-    <version>3.0.3</version>
+    <version>3.0.4-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -204,6 +204,12 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>proholographicdisplays-nms-v1_20_r1</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>proholographicdisplays-nms-v1_20_r2</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
