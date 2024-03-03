@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.promcteam</groupId>
         <artifactId>proholographicdisplays-nms</artifactId>
-        <version>3.0.4-SNAPSHOT</version>
+        <version>3.0.5-SNAPSHOT</version>
     </parent>
 
     <artifactId>proholographicdisplays-nms-v1_19_r3</artifactId>

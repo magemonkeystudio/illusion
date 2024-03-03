@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.promcteam</groupId>
         <artifactId>proholographicdisplays-parent</artifactId>
-        <version>3.0.4-SNAPSHOT</version>
+        <groupId>com.promcteam</groupId>
+        <version>3.0.5-SNAPSHOT</version>
     </parent>
 
     <artifactId>proholographicdisplays-legacy-api</artifactId>
