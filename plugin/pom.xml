@@ -5,27 +5,27 @@
 
     <parent>
         <groupId>com.promcteam</groupId>
-        <artifactId>proholographicdisplays-parent</artifactId>
+        <artifactId>illusion-parent</artifactId>
         <version>3.0.5-SNAPSHOT</version>
     </parent>
 
-    <artifactId>proholographicdisplays-plugin</artifactId>
-    <name>ProHolographicDisplays Plugin</name>
+    <artifactId>illusion-plugin</artifactId>
+    <name>Illusion Plugin</name>
 
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>proholographicdisplays-api</artifactId>
+            <artifactId>illusion-api</artifactId>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>proholographicdisplays-common</artifactId>
+            <artifactId>illusion-common</artifactId>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>proholographicdisplays-core</artifactId>
+            <artifactId>illusion-core</artifactId>
         </dependency>
 
         <dependency>

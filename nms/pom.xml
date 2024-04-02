@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>com.promcteam</groupId>
-        <artifactId>proholographicdisplays-parent</artifactId>
+        <artifactId>illusion-parent</artifactId>
         <version>3.0.5-SNAPSHOT</version>
     </parent>
 
-    <artifactId>proholographicdisplays-nms</artifactId>
-    <name>ProHolographicDisplays NMS</name>
+    <artifactId>illusion-nms</artifactId>
+    <name>Illusion NMS</name>
     <packaging>pom</packaging>
 
     <modules>

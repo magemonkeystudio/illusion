@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>com.promcteam</groupId>
-        <artifactId>proholographicdisplays-parent</artifactId>
+        <artifactId>illusion-parent</artifactId>
         <version>3.0.5-SNAPSHOT</version>
     </parent>
 
-    <artifactId>proholographicdisplays-common</artifactId>
-    <name>ProHolographicDisplays Common</name>
+    <artifactId>illusion-common</artifactId>
+    <name>Illusion Common</name>
 
     <dependencies>
         <dependency>

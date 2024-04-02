@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>com.promcteam</groupId>
-        <artifactId>proholographicdisplays-parent</artifactId>
+        <artifactId>illusion-parent</artifactId>
         <version>3.0.5-SNAPSHOT</version>
     </parent>
 
-    <artifactId>proholographicdisplays-example</artifactId>
-    <name>ProHolographicDisplays Example</name>
+    <artifactId>illusion-example</artifactId>
+    <name>Illusion Example</name>
     <packaging>pom</packaging>
 
     <modules>
@@ -21,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>proholographicdisplays-api</artifactId>
+            <artifactId>illusion-api</artifactId>
         </dependency>
 
         <dependency>

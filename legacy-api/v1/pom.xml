@@ -5,11 +5,11 @@
 
     <parent>
         <groupId>com.promcteam</groupId>
-        <artifactId>proholographicdisplays-legacy-api</artifactId>
+        <artifactId>illusion-legacy-api</artifactId>
         <version>3.0.5-SNAPSHOT</version>
     </parent>
 
-    <artifactId>proholographicdisplays-legacy-api-v1</artifactId>
-    <name>HolographicDisplays Legacy API v1</name>
+    <artifactId>illusion-legacy-api-v1</artifactId>
+    <name>Illusion Legacy API v1</name>
 
 </project>

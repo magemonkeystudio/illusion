@@ -1,14 +1,14 @@
-name: ProHolographicDisplays
+name: Illusion
 main: me.filoghost.holographicdisplays.plugin.HolographicDisplays
 author: filoghost
 version: ${pluginVersion}
 api-version: 1.13
-provides: [HolographicDisplays]
+provides: [HolographicDisplays, ProHolographicDisplays]
 
 softdepend: [PlaceholderAPI]
 
 commands:
    holograms:
-      description: Main command for ProHolographicDisplays.
+      description: Main command for Illusion.
       usage: /<command> (Startup error)
       aliases: [hd, holo, hologram, holograms]

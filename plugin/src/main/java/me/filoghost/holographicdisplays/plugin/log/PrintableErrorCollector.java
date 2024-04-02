@@ -20,7 +20,7 @@ import java.util.List;
 
 public class PrintableErrorCollector extends ErrorCollector {
 
-    private static final String ERROR_PREFIX = ChatColor.RED + "[ProHolographicDisplays] ";
+    private static final String ERROR_PREFIX = ChatColor.RED + "[Illusion] ";
 
     public void logSummaryToConsole() {
         Bukkit.getConsoleSender().sendMessage(ERROR_PREFIX

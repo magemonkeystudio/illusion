@@ -2,4 +2,4 @@ name: DeathHolograms
 main: com.gmail.filoghost.example.deathholograms.DeathHolograms
 version: 1.0
 
-softdepend: [ProHolographicDisplays]
+softdepend: [Illusion]

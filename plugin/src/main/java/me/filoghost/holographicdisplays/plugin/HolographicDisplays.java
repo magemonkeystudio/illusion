@@ -51,7 +51,7 @@ public class HolographicDisplays extends FCommonsPlugin {
         // Warn about plugin reloaders and the /reload command
         if (instance != null || System.getProperty("HolographicDisplaysLoaded") != null) {
             Bukkit.getConsoleSender().sendMessage(
-                    ChatColor.RED + "[ProHolographicDisplays] Please do not use /reload or plugin reloaders."
+                    ChatColor.RED + "[Illusion] Please do not use /reload or plugin reloaders."
                             + " Use the command \"/holograms reload\" instead."
                             + " You will receive no support for doing this operation.");
         }

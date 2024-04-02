@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>proholographicdisplays-parent</artifactId>
+        <artifactId>illusion-parent</artifactId>
         <groupId>com.promcteam</groupId>
         <version>3.0.5-SNAPSHOT</version>
     </parent>
 
-    <artifactId>proholographicdisplays-legacy-api</artifactId>
-    <name>HolographicDisplays Legacy API</name>
+    <artifactId>illusion-legacy-api</artifactId>
+    <name>Illusion Legacy API</name>
     <packaging>pom</packaging>
 
     <modules>
@@ -21,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>proholographicdisplays-api</artifactId>
+            <artifactId>illusion-api</artifactId>
         </dependency>
 
         <dependency>

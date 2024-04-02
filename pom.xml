@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.promcteam</groupId>
-    <artifactId>proholographicdisplays-parent</artifactId>
-    <name>ProHolographicDisplays Parent</name>
+    <artifactId>illusion-parent</artifactId>
+    <name>Illusion Parent</name>
     <version>3.0.5-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -58,6 +58,11 @@
         </repository>
 
         <repository>
+            <id>sonatype</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+
+        <repository>
             <id>codemc-repo</id>
             <url>https://repo.codemc.io/repository/maven-public/</url>
         </repository>
@@ -77,145 +82,145 @@
         <dependencies>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-api</artifactId>
+                <artifactId>illusion-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-common</artifactId>
+                <artifactId>illusion-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-core</artifactId>
+                <artifactId>illusion-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-legacy-api-v1</artifactId>
+                <artifactId>illusion-legacy-api-v1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-legacy-api-v2</artifactId>
+                <artifactId>illusion-legacy-api-v2</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-common</artifactId>
+                <artifactId>illusion-nms-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_8_r3</artifactId>
+                <artifactId>illusion-nms-v1_8_r3</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_9_r2</artifactId>
+                <artifactId>illusion-nms-v1_9_r2</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_10_r1</artifactId>
+                <artifactId>illusion-nms-v1_10_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_11_r1</artifactId>
+                <artifactId>illusion-nms-v1_11_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_12_r1</artifactId>
+                <artifactId>illusion-nms-v1_12_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_13_r2</artifactId>
+                <artifactId>illusion-nms-v1_13_r2</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_14_r1</artifactId>
+                <artifactId>illusion-nms-v1_14_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_15_r1</artifactId>
+                <artifactId>illusion-nms-v1_15_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_16_r3</artifactId>
+                <artifactId>illusion-nms-v1_16_r3</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_17_r1</artifactId>
+                <artifactId>illusion-nms-v1_17_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_18_r1</artifactId>
+                <artifactId>illusion-nms-v1_18_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_18_r2</artifactId>
+                <artifactId>illusion-nms-v1_18_r2</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_19_r1</artifactId>
+                <artifactId>illusion-nms-v1_19_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_19_r2</artifactId>
+                <artifactId>illusion-nms-v1_19_r2</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_19_r3</artifactId>
+                <artifactId>illusion-nms-v1_19_r3</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_20_r1</artifactId>
+                <artifactId>illusion-nms-v1_20_r1</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_20_r2</artifactId>
+                <artifactId>illusion-nms-v1_20_r2</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>proholographicdisplays-nms-v1_20_r3</artifactId>
+                <artifactId>illusion-nms-v1_20_r3</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

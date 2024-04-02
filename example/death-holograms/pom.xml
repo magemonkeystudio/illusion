@@ -5,11 +5,11 @@
 
     <parent>
         <groupId>com.promcteam</groupId>
-        <artifactId>proholographicdisplays-example</artifactId>
+        <artifactId>illusion-example</artifactId>
         <version>3.0.5-SNAPSHOT</version>
     </parent>
 
-    <artifactId>proholographicdisplays-example-deathholograms</artifactId>
-    <name>ProHolographicDisplays Example DeathHolograms</name>
+    <artifactId>illusion-example-deathholograms</artifactId>
+    <name>Illusion Example DeathHolograms</name>
 
 </project>

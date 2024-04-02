@@ -5,17 +5,17 @@
 
     <parent>
         <groupId>com.promcteam</groupId>
-        <artifactId>proholographicdisplays-nms</artifactId>
+        <artifactId>illusion-nms</artifactId>
         <version>3.0.5-SNAPSHOT</version>
     </parent>
 
-    <artifactId>proholographicdisplays-nms-v1_13_r2</artifactId>
-    <name>ProHolographicDisplays NMS v1_13_R2</name>
+    <artifactId>illusion-nms-v1_13_r2</artifactId>
+    <name>Illusion NMS v1_13_R2</name>
 
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>proholographicdisplays-nms-common</artifactId>
+            <artifactId>illusion-nms-common</artifactId>
         </dependency>
 
         <dependency>
