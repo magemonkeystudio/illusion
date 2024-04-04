@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.promcteam</groupId>
+        <groupId>studio.magemonkey</groupId>
         <artifactId>illusion-parent</artifactId>
         <version>3.0.5-SNAPSHOT</version>
     </parent>

@@ -24,7 +24,7 @@ maven repository.
 
 ```xml
 <dependency>
-    <groupId>com.promcteam</groupId>
+    <groupId>studio.magemonkey</groupId>
     <artifactId>illusion-api</artifactId>
     <version>3.0.5-SNAPSHOT</version>
     <scope>provided</scope>
@@ -39,7 +39,7 @@ maven {
 ```
 
 ```groovy
-compileOnly 'com.promcteam:illusion-api:3.0.5'
+compileOnly 'studio.magemonkey:illusion-api:3.0.5'
 ```
 
 ## License

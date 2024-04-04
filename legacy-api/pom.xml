@@ -5,7 +5,7 @@
 
     <parent>
         <artifactId>illusion-parent</artifactId>
-        <groupId>com.promcteam</groupId>
+        <groupId>studio.magemonkey</groupId>
         <version>3.0.5-SNAPSHOT</version>
     </parent>
 
