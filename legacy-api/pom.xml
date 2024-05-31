@@ -6,7 +6,7 @@
     <parent>
         <artifactId>illusion-parent</artifactId>
         <groupId>studio.magemonkey</groupId>
-        <version>3.0.5-SNAPSHOT</version>
+        <version>3.0.6-SNAPSHOT</version>
     </parent>
 
     <artifactId>illusion-legacy-api</artifactId>

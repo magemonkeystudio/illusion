@@ -17,21 +17,24 @@ import me.filoghost.holographicdisplays.plugin.lib.nbt.parser.MojangsonParseExce
 import me.filoghost.holographicdisplays.plugin.lib.nbt.parser.MojangsonParser;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemFactory;
 import org.bukkit.inventory.ItemStack;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InternalHologramLineParser {
 
-    private static final String ICON_PREFIX = "icon:";
+    private static final String  ICON_PREFIX                  = "icon:";
     private static final Pattern PLACEHOLDER_API_SHORT_FORMAT = Pattern.compile("%(.+?)%");
 
     public static InternalHologramLine parseLine(String serializedLine) throws InternalHologramLoadException {
         if (serializedLine.toLowerCase(Locale.ROOT).startsWith(ICON_PREFIX)) {
-            String serializedIcon = serializedLine.substring(ICON_PREFIX.length());
-            ItemStack icon = parseItemStack(serializedIcon);
+            String    serializedIcon = serializedLine.substring(ICON_PREFIX.length());
+            ItemStack icon           = parseItemStack(serializedIcon);
             return new ItemInternalHologramLine(serializedLine, icon);
 
         } else {
@@ -51,7 +54,7 @@ public class InternalHologramLineParser {
     }
 
     private static String expandPlaceholderAPIShortFormat(String text) {
-        Matcher matcher = PLACEHOLDER_API_SHORT_FORMAT.matcher(text);
+        Matcher matcher    = PLACEHOLDER_API_SHORT_FORMAT.matcher(text);
         boolean foundMatch = matcher.find();
 
         if (!foundMatch) {
@@ -76,8 +79,15 @@ public class InternalHologramLineParser {
         serializedItem = serializedItem.trim();
 
         // Parse json
-        int nbtStart = serializedItem.indexOf('{');
-        int nbtEnd = serializedItem.lastIndexOf('}');
+        char endChar  = '}';
+        int  nbtStart = serializedItem.indexOf('{');
+        int  arrStart = serializedItem.indexOf('[');
+        // If arrStart is before nbtStart, then the json is an array and we should use that instead
+        if (arrStart > 0 && (nbtStart < 0 || arrStart < nbtStart)) {
+            endChar = ']';
+            nbtStart = arrStart;
+        }
+        int    nbtEnd    = serializedItem.lastIndexOf(endChar);
         String nbtString = null;
 
         String basicItemData;
@@ -92,14 +102,15 @@ public class InternalHologramLineParser {
         basicItemData = Strings.stripChars(basicItemData, ' ');
 
         String materialName;
-        short dataValue = 0;
+        short  dataValue = 0;
 
         if (basicItemData.contains(":")) {
             String[] materialAndDataValue = Strings.split(basicItemData, ":", 2);
             try {
                 dataValue = (short) Integer.parseInt(materialAndDataValue[1]);
             } catch (NumberFormatException e) {
-                throw new InternalHologramLoadException("data value \"" + materialAndDataValue[1] + "\" is not a valid number");
+                throw new InternalHologramLoadException(
+                        "data value \"" + materialAndDataValue[1] + "\" is not a valid number");
             }
             materialName = materialAndDataValue[0];
         } else {
@@ -114,12 +125,26 @@ public class InternalHologramLineParser {
         ItemStack itemStack = new ItemStack(material, 1, dataValue);
 
         if (nbtString != null) {
+            // Check NBT syntax validity before applying it
             try {
-                // Check NBT syntax validity before applying it
                 MojangsonParser.parse(nbtString);
-                Bukkit.getUnsafe().modifyItemStack(itemStack, nbtString);
             } catch (MojangsonParseException e) {
-                throw new InternalHologramLoadException("invalid NBT data, " + e.getMessage());
+                // Could be 1.20.5+ syntax. If it starts with [, we'll just ignor the exception
+                if (!nbtString.startsWith("[")) {
+                    throw new InternalHologramLoadException("invalid NBT data, " + e.getMessage(), e);
+                }
+            }
+
+            try {
+                // 1.20.5, we probably want to use ItemFactory.createItem
+                ItemFactory itemFactory = Bukkit.getItemFactory();
+                Method      createItem  = itemFactory.getClass().getMethod("createItemStack", String.class);
+                itemStack = (ItemStack) createItem.invoke(itemFactory, "minecraft:" + materialName + nbtString);
+                itemStack.setDurability(dataValue);
+            } catch (NoSuchMethodException | IllegalAccessException e) {
+                Bukkit.getUnsafe().modifyItemStack(itemStack, nbtString);
+            } catch (InvocationTargetException e) {
+                throw new InternalHologramLoadException("invalid NBT data, " + e.getMessage(), e);
             } catch (Exception e) {
                 throw new InternalHologramLoadException("unexpected exception while parsing NBT data", e);
             }

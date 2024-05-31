@@ -61,6 +61,7 @@ public class InternalHologramConfig {
                 lines.add(InternalHologramLineParser.parseLine(serializedLine));
             } catch (InternalHologramLoadException e) {
                 // Rethrow with more details
+                e.printStackTrace();
                 throw new InternalHologramLoadException("invalid line: " + e.getMessage(), e);
             }
         }

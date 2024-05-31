@@ -6,7 +6,7 @@
     <groupId>studio.magemonkey</groupId>
     <artifactId>illusion-parent</artifactId>
     <name>Illusion Parent</name>
-    <version>3.0.5-SNAPSHOT</version>
+    <version>3.0.6-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -222,6 +222,12 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_20_r3</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>illusion-nms-v1_20_r4</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
