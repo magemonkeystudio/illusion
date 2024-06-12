@@ -55,7 +55,9 @@ public enum NMSVersion {
         this.nmsManagerFactory = nmsManagerFactory;
     }
 
-    public NMSManager createNMSManager(ErrorCollector errorCollector) throws OutdatedVersionException, UnknownVersionException {
+    public NMSManager createNMSManager(ErrorCollector errorCollector) throws
+            OutdatedVersionException,
+            UnknownVersionException {
         return nmsManagerFactory.create(errorCollector);
     }
 
@@ -64,7 +66,28 @@ public enum NMSVersion {
     }
 
     private static NMSVersion detectCurrentVersion() {
-        Matcher matcher = Pattern.compile("v\\d+_\\d+_R\\d+").matcher(Bukkit.getServer().getClass().getPackage().getName());
+        String bukkitVersion = Bukkit.getServer().getBukkitVersion();
+        int    majorVersion  = Integer.parseInt(bukkitVersion.split("\\.")[1]);
+        if (majorVersion >= 20) {
+            switch (bukkitVersion) {
+                case "1.20-R0.1-SNAPSHOT":
+                case "1.20.1-R0.1-SNAPSHOT":
+                    return v1_20_R1;
+                case "1.20.2-R0.1-SNAPSHOT":
+                    return v1_20_R2;
+                case "1.20.3-R0.1-SNAPSHOT":
+                case "1.20.4-R0.1-SNAPSHOT":
+                    return v1_20_R3;
+                case "1.20.5-R0.1-SNAPSHOT":
+                case "1.20.6-R0.1-SNAPSHOT":
+                    return v1_20_R4;
+                default:
+                    return UNKNOWN;
+            }
+        }
+
+        Matcher matcher =
+                Pattern.compile("v\\d+_\\d+_R\\d+").matcher(Bukkit.getServer().getClass().getPackage().getName());
         if (!matcher.find()) {
             return UNKNOWN;
         }
@@ -97,7 +120,8 @@ public enum NMSVersion {
 
     }
 
-    public static class UnknownVersionException extends Exception {}
+    public static class UnknownVersionException extends Exception {
+    }
 
     public static class OutdatedVersionException extends Exception {
 
