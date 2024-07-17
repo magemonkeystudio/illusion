@@ -22,29 +22,30 @@ public enum NMSVersion {
 
     /* 1.8 - 1.8.2     */ v1_8_R1(NMSManagerFactory.outdatedVersion("1.8.4")),
     /* 1.8.3           */ v1_8_R2(NMSManagerFactory.outdatedVersion("1.8.4")),
-    /* 1.8.4 - 1.8.9   */ v1_8_R3(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_8_R3.VersionNMSManager(errorCollector)),
+    /* 1.8.4 - 1.8.9   */ v1_8_R3(me.filoghost.holographicdisplays.nms.v1_8_R3.VersionNMSManager::new),
     /* 1.9 - 1.9.3     */ v1_9_R1(NMSManagerFactory.outdatedVersion("1.9.4")),
-    /* 1.9.4           */ v1_9_R2(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_9_R2.VersionNMSManager(errorCollector)),
-    /* 1.10 - 1.10.2   */ v1_10_R1(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_10_R1.VersionNMSManager(errorCollector)),
-    /* 1.11 - 1.11.2   */ v1_11_R1(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_11_R1.VersionNMSManager(errorCollector)),
-    /* 1.12 - 1.12.2   */ v1_12_R1(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_12_R1.VersionNMSManager(errorCollector)),
+    /* 1.9.4           */ v1_9_R2(me.filoghost.holographicdisplays.nms.v1_9_R2.VersionNMSManager::new),
+    /* 1.10 - 1.10.2   */ v1_10_R1(me.filoghost.holographicdisplays.nms.v1_10_R1.VersionNMSManager::new),
+    /* 1.11 - 1.11.2   */ v1_11_R1(me.filoghost.holographicdisplays.nms.v1_11_R1.VersionNMSManager::new),
+    /* 1.12 - 1.12.2   */ v1_12_R1(me.filoghost.holographicdisplays.nms.v1_12_R1.VersionNMSManager::new),
     /* 1.13            */ v1_13_R1(NMSManagerFactory.outdatedVersion("1.13.1")),
-    /* 1.13.1 - 1.13.2 */ v1_13_R2(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_13_R2.VersionNMSManager(errorCollector)),
-    /* 1.14 - 1.14.4   */ v1_14_R1(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_14_R1.VersionNMSManager(errorCollector)),
-    /* 1.15 - 1.15.2   */ v1_15_R1(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_15_R1.VersionNMSManager(errorCollector)),
+    /* 1.13.1 - 1.13.2 */ v1_13_R2(me.filoghost.holographicdisplays.nms.v1_13_R2.VersionNMSManager::new),
+    /* 1.14 - 1.14.4   */ v1_14_R1(me.filoghost.holographicdisplays.nms.v1_14_R1.VersionNMSManager::new),
+    /* 1.15 - 1.15.2   */ v1_15_R1(me.filoghost.holographicdisplays.nms.v1_15_R1.VersionNMSManager::new),
     /* 1.16 - 1.16.1   */ v1_16_R1(NMSManagerFactory.outdatedVersion("1.16.4")),
     /* 1.16.2 - 1.16.3 */ v1_16_R2(NMSManagerFactory.outdatedVersion("1.16.4")),
-    /* 1.16.4 - 1.16.5 */ v1_16_R3(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_16_R3.VersionNMSManager(errorCollector)),
-    /* 1.17            */ v1_17_R1(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_17_R1.VersionNMSManager(errorCollector)),
-    /* 1.18 - 1.18.1   */ v1_18_R1(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_18_R1.VersionNMSManager(errorCollector)),
-    /* 1.18.2          */ v1_18_R2(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_18_R2.VersionNMSManager(errorCollector)),
-    /* 1.19 - 1.19.2   */ v1_19_R1(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_19_R1.VersionNMSManager(errorCollector)),
-    /* 1.19.3          */ v1_19_R2(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_19_R2.VersionNMSManager(errorCollector)),
-    /* 1.19.4          */ v1_19_R3(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_19_R3.VersionNMSManager(errorCollector)),
-    /* 1.20 - 1.20.1   */ v1_20_R1(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_20_R1.VersionNMSManager(errorCollector)),
-    /* 1.20.2          */ v1_20_R2(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_20_R2.VersionNMSManager(errorCollector)),
-    /* 1.20.3 - 1.20.4 */ v1_20_R3(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_20_R3.VersionNMSManager(errorCollector)),
-    /* 1.20.5 - 1.20.6 */ v1_20_R4(errorCollector -> new me.filoghost.holographicdisplays.nms.v1_20_R4.VersionNMSManager(errorCollector)),
+    /* 1.16.4 - 1.16.5 */ v1_16_R3(me.filoghost.holographicdisplays.nms.v1_16_R3.VersionNMSManager::new),
+    /* 1.17            */ v1_17_R1(me.filoghost.holographicdisplays.nms.v1_17_R1.VersionNMSManager::new),
+    /* 1.18 - 1.18.1   */ v1_18_R1(me.filoghost.holographicdisplays.nms.v1_18_R1.VersionNMSManager::new),
+    /* 1.18.2          */ v1_18_R2(me.filoghost.holographicdisplays.nms.v1_18_R2.VersionNMSManager::new),
+    /* 1.19 - 1.19.2   */ v1_19_R1(me.filoghost.holographicdisplays.nms.v1_19_R1.VersionNMSManager::new),
+    /* 1.19.3          */ v1_19_R2(me.filoghost.holographicdisplays.nms.v1_19_R2.VersionNMSManager::new),
+    /* 1.19.4          */ v1_19_R3(me.filoghost.holographicdisplays.nms.v1_19_R3.VersionNMSManager::new),
+    /* 1.20 - 1.20.1   */ v1_20_R1(me.filoghost.holographicdisplays.nms.v1_20_R1.VersionNMSManager::new),
+    /* 1.20.2          */ v1_20_R2(me.filoghost.holographicdisplays.nms.v1_20_R2.VersionNMSManager::new),
+    /* 1.20.3 - 1.20.4 */ v1_20_R3(me.filoghost.holographicdisplays.nms.v1_20_R3.VersionNMSManager::new),
+    /* 1.20.5 - 1.20.6 */ v1_20_R4(me.filoghost.holographicdisplays.nms.v1_20_R4.VersionNMSManager::new),
+    /* 1.21   - X      */ v1_21_R1(me.filoghost.holographicdisplays.nms.v1_21_R1.VersionNMSManager::new),
     /* Other versions  */ UNKNOWN(NMSManagerFactory.unknownVersion());
 
     private static final NMSVersion CURRENT_VERSION = detectCurrentVersion();
@@ -67,7 +68,7 @@ public enum NMSVersion {
 
     private static NMSVersion detectCurrentVersion() {
         String bukkitVersion = Bukkit.getServer().getBukkitVersion();
-        int    majorVersion  = Integer.parseInt(bukkitVersion.split("\\.")[1]);
+        int    majorVersion  = Integer.parseInt(bukkitVersion.split("[.-]")[1]);
         if (majorVersion >= 20) {
             switch (bukkitVersion) {
                 case "1.20-R0.1-SNAPSHOT":
@@ -81,6 +82,8 @@ public enum NMSVersion {
                 case "1.20.5-R0.1-SNAPSHOT":
                 case "1.20.6-R0.1-SNAPSHOT":
                     return v1_20_R4;
+                case "1.21-R0.1-SNAPSHOT":
+                    return v1_21_R1;
                 default:
                     return UNKNOWN;
             }
