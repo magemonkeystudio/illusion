@@ -19,6 +19,8 @@ class EntityMountNMSPacket extends VersionNMSPacket {
     EntityMountNMSPacket(EntityID vehicleEntityID, EntityID passengerEntityID) {
         PacketByteBuffer packetByteBuffer = PacketByteBuffer.get();
 
+        // We'll leave this as a byte buffer for now, since I think the PacketPlayOutMount constructor
+        // requires modifying the vehicle entity to have the passenger before we can create this packet
         packetByteBuffer.writeVarInt(vehicleEntityID.getNumericID());
         packetByteBuffer.writeVarIntArray(passengerEntityID.getNumericID());
 

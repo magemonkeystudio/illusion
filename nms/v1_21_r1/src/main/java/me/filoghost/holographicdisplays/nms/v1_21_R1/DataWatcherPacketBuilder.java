@@ -6,39 +6,51 @@
 package me.filoghost.holographicdisplays.nms.v1_21_R1;
 
 import me.filoghost.fcommons.Strings;
+import me.filoghost.holographicdisplays.nms.common.EntityID;
 import net.minecraft.network.chat.IChatBaseComponent;
+import net.minecraft.network.syncher.DataWatcher;
 import org.bukkit.craftbukkit.v1_21_R1.inventory.CraftItemStack;
 import org.bukkit.craftbukkit.v1_21_R1.util.CraftChatMessage;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 abstract class DataWatcherPacketBuilder<T> {
 
     private static final int MAX_CUSTOM_NAME_LENGTH = 5000;
 
-    private final PacketByteBuffer packetByteBuffer;
+    protected final EntityID               entityId;
+    protected       List<DataWatcher.c<?>> watchers = new ArrayList<>();
 
-    DataWatcherPacketBuilder(PacketByteBuffer packetByteBuffer) {
-        this.packetByteBuffer = packetByteBuffer;
+    public DataWatcherPacketBuilder(EntityID entityId) {
+        this.entityId = entityId;
     }
 
     DataWatcherPacketBuilder<T> setInvisible() {
-        packetByteBuffer.writeDataWatcherEntry(DataWatcherKey.ENTITY_STATUS, (byte) 0x20); // Invisible
+        watchers.add(new DataWatcher.c<>(DataWatcherKey.ENTITY_STATUS.getIndex(),
+                DataWatcherKey.ENTITY_STATUS.getSerializer(),
+                (byte) 0x20));
         return this;
     }
 
     DataWatcherPacketBuilder<T> setArmorStandMarker() {
         setInvisible();
-        packetByteBuffer.writeDataWatcherEntry(
-                DataWatcherKey.ARMOR_STAND_STATUS,
-                (byte) (0x01 | 0x02 | 0x08 | 0x10)); // Small, no gravity, no base plate, marker
+        // Small, no gravity, no base plate, marker
+        watchers.add(new DataWatcher.c<>(DataWatcherKey.ARMOR_STAND_STATUS.getIndex(),
+                DataWatcherKey.ARMOR_STAND_STATUS.getSerializer(),
+                (byte) (0x01 | 0x02 | 0x08 | 0x10)));
         return this;
     }
 
     DataWatcherPacketBuilder<T> setCustomName(String customName) {
-        packetByteBuffer.writeDataWatcherEntry(DataWatcherKey.CUSTOM_NAME, getCustomNameDataWatcherValue(customName));
-        packetByteBuffer.writeDataWatcherEntry(DataWatcherKey.CUSTOM_NAME_VISIBILITY, !Strings.isEmpty(customName));
+        watchers.add(new DataWatcher.c<>(DataWatcherKey.CUSTOM_NAME.getIndex(),
+                DataWatcherKey.CUSTOM_NAME.getSerializer(),
+                getCustomNameDataWatcherValue(customName)));
+        watchers.add(new DataWatcher.c<>(DataWatcherKey.CUSTOM_NAME_VISIBILITY.getIndex(),
+                DataWatcherKey.CUSTOM_NAME_VISIBILITY.getSerializer(),
+                !Strings.isEmpty(customName)));
         return this;
     }
 
@@ -52,20 +64,23 @@ abstract class DataWatcherPacketBuilder<T> {
     }
 
     DataWatcherPacketBuilder<T> setItemStack(ItemStack itemStack) {
-        packetByteBuffer.writeDataWatcherEntry(DataWatcherKey.ITEM_STACK, CraftItemStack.asNMSCopy(itemStack));
+        watchers.add(new DataWatcher.c<>(DataWatcherKey.ITEM_STACK.getIndex(),
+                DataWatcherKey.ITEM_STACK.getSerializer(),
+                CraftItemStack.asNMSCopy(itemStack)));
         return this;
     }
 
     DataWatcherPacketBuilder<T> setSlimeSmall() {
-        packetByteBuffer.writeDataWatcherEntry(DataWatcherKey.SLIME_SIZE, 1);
+        watchers.add(new DataWatcher.c<>(DataWatcherKey.SLIME_SIZE.getIndex(),
+                DataWatcherKey.SLIME_SIZE.getSerializer(),
+                0));
         return this;
     }
 
     T build() {
-        packetByteBuffer.writeDataWatcherEntriesEnd();
-        return createPacket(packetByteBuffer);
+        return createPacket();
     }
 
-    abstract T createPacket(PacketByteBuffer packetByteBuffer);
+    abstract T createPacket();
 
 }

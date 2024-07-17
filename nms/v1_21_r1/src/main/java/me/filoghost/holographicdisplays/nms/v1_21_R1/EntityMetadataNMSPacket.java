@@ -6,25 +6,18 @@
 package me.filoghost.holographicdisplays.nms.v1_21_R1;
 
 import me.filoghost.holographicdisplays.nms.common.EntityID;
-import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.PacketPlayOutEntityMetadata;
+import net.minecraft.network.syncher.DataWatcher;
 
-import java.lang.reflect.Constructor;
+import java.util.List;
 
 class EntityMetadataNMSPacket extends VersionNMSPacket {
 
     private final Packet<?> rawPacket;
 
-    private EntityMetadataNMSPacket(PacketByteBuffer packetByteBuffer) {
-        try {
-            Constructor<PacketPlayOutEntityMetadata> ctor = PacketPlayOutEntityMetadata.class
-                    .getDeclaredConstructor(RegistryFriendlyByteBuf.class);
-            ctor.setAccessible(true);
-            this.rawPacket = ctor.newInstance(packetByteBuffer.getInternalSerializer());
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to create EntityMetadataNMSPacket", e);
-        }
+    private EntityMetadataNMSPacket(EntityID entityId, List<DataWatcher.c<?>> watchers) {
+        this.rawPacket = new PacketPlayOutEntityMetadata(entityId.getNumericID(), watchers);
     }
 
     @Override
@@ -33,21 +26,18 @@ class EntityMetadataNMSPacket extends VersionNMSPacket {
     }
 
     public static DataWatcherPacketBuilder<EntityMetadataNMSPacket> builder(EntityID entityID) {
-        PacketByteBuffer packetByteBuffer = PacketByteBuffer.get();
-        packetByteBuffer.writeVarInt(entityID.getNumericID());
-        return new Builder(packetByteBuffer);
+        return new Builder(entityID);
     }
 
 
     private static class Builder extends DataWatcherPacketBuilder<EntityMetadataNMSPacket> {
-
-        private Builder(PacketByteBuffer packetByteBuffer) {
-            super(packetByteBuffer);
+        public Builder(EntityID entityId) {
+            super(entityId);
         }
 
         @Override
-        EntityMetadataNMSPacket createPacket(PacketByteBuffer packetByteBuffer) {
-            return new EntityMetadataNMSPacket(packetByteBuffer);
+        EntityMetadataNMSPacket createPacket() {
+            return new EntityMetadataNMSPacket(entityId, watchers);
         }
     }
 

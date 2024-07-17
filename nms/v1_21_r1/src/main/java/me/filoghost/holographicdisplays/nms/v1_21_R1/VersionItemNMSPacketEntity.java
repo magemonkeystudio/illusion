@@ -24,11 +24,11 @@ class VersionItemNMSPacketEntity implements ItemNMSPacketEntity {
     @Override
     public PacketGroup newSpawnPackets(PositionCoordinates position, ItemStack itemStack) {
         return PacketGroup.of(
-                new EntitySpawnNMSPacket(vehicleID, EntityTypeID.ARMOR_STAND, position, ITEM_Y_OFFSET),
+                new EntitySpawnNMSPacket(vehicleID, EntityType.ARMOR_STAND, position, ITEM_Y_OFFSET),
                 EntityMetadataNMSPacket.builder(vehicleID)
                         .setArmorStandMarker()
                         .build(),
-                new EntitySpawnNMSPacket(itemID, EntityTypeID.ITEM, position, ITEM_Y_OFFSET),
+                new EntitySpawnNMSPacket(itemID, EntityType.ITEM, position, ITEM_Y_OFFSET),
                 EntityMetadataNMSPacket.builder(itemID)
                         .setItemStack(itemStack)
                         .build(),

@@ -26,7 +26,7 @@ class VersionClickableNMSPacketEntity implements ClickableNMSPacketEntity {
     @Override
     public PacketGroup newSpawnPackets(PositionCoordinates position) {
         return PacketGroup.of(
-                new EntitySpawnNMSPacket(slimeID, EntityTypeID.SLIME, position, SLIME_Y_OFFSET),
+                new EntitySpawnNMSPacket(slimeID, EntityType.SLIME, position, SLIME_Y_OFFSET),
                 EntityMetadataNMSPacket.builder(slimeID)
                         .setInvisible()
                         .setSlimeSmall() // Required for a correct client-side collision box
