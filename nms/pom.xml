@@ -6,7 +6,7 @@
     <parent>
         <groupId>studio.magemonkey</groupId>
         <artifactId>illusion-parent</artifactId>
-        <version>3.0.7-SNAPSHOT</version>
+        <version>3.0.8-SNAPSHOT</version>
     </parent>
 
     <artifactId>illusion-nms</artifactId>
@@ -35,6 +35,7 @@
         <module>v1_20_r3</module>
         <module>v1_20_r4</module>
         <module>v1_21_r1</module>
+        <module>v1_21_r2</module>
     </modules>
 
     <dependencies>

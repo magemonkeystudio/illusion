@@ -45,7 +45,8 @@ public enum NMSVersion {
     /* 1.20.2          */ v1_20_R2(me.filoghost.holographicdisplays.nms.v1_20_R2.VersionNMSManager::new),
     /* 1.20.3 - 1.20.4 */ v1_20_R3(me.filoghost.holographicdisplays.nms.v1_20_R3.VersionNMSManager::new),
     /* 1.20.5 - 1.20.6 */ v1_20_R4(me.filoghost.holographicdisplays.nms.v1_20_R4.VersionNMSManager::new),
-    /* 1.21   - X      */ v1_21_R1(me.filoghost.holographicdisplays.nms.v1_21_R1.VersionNMSManager::new),
+    /* 1.21   - 1.21.1 */ v1_21_R1(me.filoghost.holographicdisplays.nms.v1_21_R1.VersionNMSManager::new),
+    /* 1.21.2   - X    */ v1_21_R2(me.filoghost.holographicdisplays.nms.v1_21_R2.VersionNMSManager::new),
     /* Other versions  */ UNKNOWN(NMSManagerFactory.unknownVersion());
 
     private static final NMSVersion CURRENT_VERSION = detectCurrentVersion();
@@ -85,6 +86,9 @@ public enum NMSVersion {
                 case "1.21-R0.1-SNAPSHOT":
                 case "1.21.1-R0.1-SNAPSHOT":
                     return v1_21_R1;
+                case "1.21.2-R0.1-SNAPSHOT":
+                case "1.21.3-R0.1-SNAPSHOT":
+                    return v1_21_R2;
                 default:
                     return UNKNOWN;
             }

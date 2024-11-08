@@ -26,7 +26,7 @@ maven repository.
 <dependency>
     <groupId>studio.magemonkey</groupId>
     <artifactId>illusion-api</artifactId>
-    <version>3.0.7-SNAPSHOT</version>
+    <version>3.0.8-SNAPSHOT</version>
     <scope>provided</scope>
 </dependency>
 ```
