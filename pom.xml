@@ -254,6 +254,12 @@
             </dependency>
 
             <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>illusion-nms-v1_21_r3</artifactId>
+                <version>${nms.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.spigotmc</groupId>
                 <artifactId>spigot-api</artifactId>
                 <version>${spigot-api.version}</version>
