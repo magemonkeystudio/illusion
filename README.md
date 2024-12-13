@@ -39,7 +39,7 @@ maven {
 ```
 
 ```groovy
-compileOnly 'studio.magemonkey:illusion-api:3.0.5'
+compileOnly 'studio.magemonkey:illusion-api:3.0.8-SNAPSHOT'
 ```
 
 ## License
