@@ -14,6 +14,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spigot-api.version>1.8-R0.1-SNAPSHOT</spigot-api.version>
+        <nms.version>3.0.8-SNAPSHOT</nms.version>
         <nexus.url>https://s01.oss.sonatype.org</nexus.url>
     </properties>
 
@@ -36,11 +37,20 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <name>MageMonkeyStudio</name>
+            <organization>MageMonkeyStudio</organization>
+            <organizationUrl>https://magemonkey.studio</organizationUrl>
+        </developer>
+    </developers>
+
     <scm>
-        <url>https://github.com/promcteam/illusion</url>
-        <connection>scm:git:https://github.com/promcteam/illusion.git</connection>
-        <developerConnection>scm:git:https://github.com/promcteam/illusion.git</developerConnection>
+        <connection>scm:git:git://github.com/magemonkeystudio/${project.artifactId}.git</connection>
+        <developerConnection>scm:git:ssh://github.com:magemonkeystudio/${project.artifactId}.git</developerConnection>
+        <url>https://github.com/magemonkeystudio/${project.artifactId}</url>
     </scm>
+
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -114,133 +124,133 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-common</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_8_r3</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_9_r2</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_10_r1</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_11_r1</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_12_r1</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_13_r2</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_14_r1</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_15_r1</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_16_r3</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_17_r1</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_18_r1</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_18_r2</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_19_r1</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_19_r2</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_19_r3</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_20_r1</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_20_r2</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_20_r3</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_20_r4</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_21_r1</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_21_r2</artifactId>
-                <version>${project.version}</version>
+                <version>${nms.version}</version>
             </dependency>
 
             <dependency>
@@ -483,6 +493,94 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>publish</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.7.0</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>central</serverId>
+                            <nexusUrl>${nexus.url}</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.11.2</version>
+                        <configuration>
+                            <doclint>all,-missing</doclint>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <attach>true</attach>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.3.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <attach>true</attach>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>gpg</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.2.4</version>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <configuration>
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <reporting>
         <plugins>
