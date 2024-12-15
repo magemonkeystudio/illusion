@@ -25,7 +25,4 @@ jobs:
         with:
           githubServer: false
       - name: Build with Maven
-        run: mvn clean package -e -pl \!nms,\!nms/common,\!nms/v1_8_r3,\!nms/v1_9_r2,\!nms/v1_10_r1,\!nms/v1_11_r1,\!nms/v1_12_r1,\
-          \!nms/v1_13_r2,\!nms/v1_14_r1,\!nms/v1_15_r1,\!nms/v1_16_r3,\!nms/v1_17_r1,\!nms/v1_18_r1,\!nms/v1_18_r2,\
-          \!nms/v1_19_r1,\!nms/v1_19_r2,\!nms/v1_19_r3,\!nms/v1_20_r1,\!nms/v1_20_r2,\!nms/v1_20_r3,\!nms/v1_20_r4,\
-          \!nms/v1_21_r1,\!nms/v1_21_r2,\!nms/v1_21_r3
+        run: mvn clean package -e -f pom-dev.xml
