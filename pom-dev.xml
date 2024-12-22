@@ -5,7 +5,7 @@
 
     <groupId>studio.magemonkey</groupId>
     <artifactId>illusion-parent</artifactId>
-    <version>3.0.9-SNAPSHOT</version>
+    <version>3.0.10-SNAPSHOT</version>
     <name>Illusion Parent</name>
     <packaging>pom</packaging>
 
