@@ -91,6 +91,8 @@ public enum NMSVersion {
                 case "1.21.2-R0.1-SNAPSHOT":
                 case "1.21.3-R0.1-SNAPSHOT":
                     return v1_21_R2;
+                case "1.21.4-R0.1-SNAPSHOT":
+                    return v1_21_R3;
                 default:
                     return UNKNOWN;
             }
