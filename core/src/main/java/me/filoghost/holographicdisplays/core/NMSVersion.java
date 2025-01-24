@@ -7,7 +7,6 @@ package me.filoghost.holographicdisplays.core;
 
 import me.filoghost.fcommons.logging.ErrorCollector;
 import me.filoghost.holographicdisplays.nms.common.NMSManager;
-import me.filoghost.holographicdisplays.nms.v1_21_R3.VersionNMSManager;
 import org.bukkit.Bukkit;
 
 import java.util.regex.Matcher;
@@ -47,7 +46,7 @@ public enum NMSVersion {
     /* 1.20.3 - 1.20.4 */ v1_20_R3(me.filoghost.holographicdisplays.nms.v1_20_R3.VersionNMSManager::new),
     /* 1.20.5 - 1.20.6 */ v1_20_R4(me.filoghost.holographicdisplays.nms.v1_20_R4.VersionNMSManager::new),
     /* 1.21   - 1.21.1 */ v1_21_R1(me.filoghost.holographicdisplays.nms.v1_21_R1.VersionNMSManager::new),
-    /* 1.21.2 - 1.21.3 */ v1_21_R2(VersionNMSManager::new),
+    /* 1.21.2 - 1.21.3 */ v1_21_R2(me.filoghost.holographicdisplays.nms.v1_21_R2.VersionNMSManager::new),
     /* 1.21.4 - X      */ v1_21_R3(me.filoghost.holographicdisplays.nms.v1_21_R3.VersionNMSManager::new),
     /* Other versions  */ UNKNOWN(NMSManagerFactory.unknownVersion());
 
