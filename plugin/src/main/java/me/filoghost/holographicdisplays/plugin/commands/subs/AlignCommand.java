@@ -14,7 +14,14 @@ import me.filoghost.holographicdisplays.plugin.commands.InternalHologramEditor;
 import me.filoghost.holographicdisplays.plugin.event.InternalHologramChangeEvent.ChangeType;
 import me.filoghost.holographicdisplays.plugin.format.ColorScheme;
 import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologram;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static me.filoghost.fcommons.command.CommandHelper.filterStartingWith;
 
 public class AlignCommand extends HologramSubCommand {
 
@@ -59,6 +66,18 @@ public class AlignCommand extends HologramSubCommand {
         sender.sendMessage(ColorScheme.PRIMARY + "Hologram \"" + hologram.getName() + "\""
                 + " aligned to the hologram \"" + referenceHologram.getName() + "\""
                 + " on the " + axis.toUpperCase() + " axis.");
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            return filterStartingWith(args[0], "X", "Y", "Z", "XZ");
+        } else if (args.length == 2 || args.length == 3) {
+            List<String> hologramNames = hologramEditor.getHolograms().stream().map(InternalHologram::getName).collect(Collectors.toList());
+            return filterStartingWith(args[args.length - 1], hologramNames);
+        } else {
+            return Collections.emptyList();
+        }
     }
 
 }

@@ -16,7 +16,14 @@ import me.filoghost.holographicdisplays.plugin.event.InternalHologramChangeEvent
 import me.filoghost.holographicdisplays.plugin.format.ColorScheme;
 import me.filoghost.holographicdisplays.plugin.format.DisplayFormat;
 import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologram;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static me.filoghost.fcommons.command.CommandHelper.filterStartingWith;
 
 public class InsertLineCommand extends LineEditingCommand implements QuickEditCommand {
 
@@ -66,6 +73,25 @@ public class InsertLineCommand extends LineEditingCommand implements QuickEditCo
     @Override
     public String getActionName() {
         return "Insert";
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            List<String> hologramNames
+                    = hologramEditor.getHolograms().stream().map(InternalHologram::getName).collect(Collectors.toList());
+            return filterStartingWith(args[0], hologramNames);
+        }
+
+        if (args.length == 2) {
+            return Collections.singletonList("#");
+        }
+
+        if (args[args.length - 1].isEmpty()) {
+            return Collections.singletonList("<text>");
+        }
+
+        return Collections.emptyList();
     }
 
 }

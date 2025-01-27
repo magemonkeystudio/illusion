@@ -6,11 +6,12 @@
     <parent>
         <groupId>studio.magemonkey</groupId>
         <artifactId>illusion-parent</artifactId>
-        <version>3.0.9-SNAPSHOT</version>
+        <version>3.0.11-SNAPSHOT</version>
+        <relativePath/>
     </parent>
 
     <artifactId>illusion-nms</artifactId>
-    <version>3.0.9-SNAPSHOT</version>
+    <version>3.0.10-SNAPSHOT</version>
     <name>Illusion NMS</name>
     <packaging>pom</packaging>
 
@@ -42,8 +43,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>me.filoghost.fcommons</groupId>
-            <artifactId>fcommons</artifactId>
+            <groupId>studio.magemonkey</groupId>
+            <artifactId>illusive-commons</artifactId>
         </dependency>
     </dependencies>
 

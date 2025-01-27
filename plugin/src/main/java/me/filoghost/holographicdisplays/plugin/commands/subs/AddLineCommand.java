@@ -10,11 +10,18 @@ import me.filoghost.fcommons.command.sub.SubCommandContext;
 import me.filoghost.fcommons.command.validation.CommandException;
 import me.filoghost.holographicdisplays.plugin.commands.HologramCommandManager;
 import me.filoghost.holographicdisplays.plugin.commands.InternalHologramEditor;
-import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologramLine;
 import me.filoghost.holographicdisplays.plugin.event.InternalHologramChangeEvent.ChangeType;
 import me.filoghost.holographicdisplays.plugin.format.ColorScheme;
 import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologram;
+import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologramLine;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static me.filoghost.fcommons.command.CommandHelper.filterStartingWith;
 
 public class AddLineCommand extends LineEditingCommand implements QuickEditCommand {
 
@@ -33,8 +40,8 @@ public class AddLineCommand extends LineEditingCommand implements QuickEditComma
 
     @Override
     public void execute(CommandSender sender, String[] args, SubCommandContext context) throws CommandException {
-        InternalHologram hologram = hologramEditor.getExistingHologram(args[0]);
-        String serializedLine = Strings.joinFrom(" ", args, 1);
+        InternalHologram hologram       = hologramEditor.getExistingHologram(args[0]);
+        String           serializedLine = Strings.joinFrom(" ", args, 1);
 
         InternalHologramLine line = hologramEditor.parseHologramLine(serializedLine);
 
@@ -50,4 +57,18 @@ public class AddLineCommand extends LineEditingCommand implements QuickEditComma
         return "Add";
     }
 
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            List<String> hologramNames
+                    = hologramEditor.getHolograms().stream().map(InternalHologram::getName).collect(Collectors.toList());
+            return filterStartingWith(args[0], hologramNames);
+        }
+
+        if (args[args.length - 1].isEmpty()) {
+            return Collections.singletonList("<text>");
+        }
+        
+        return Collections.emptyList();
+    }
 }

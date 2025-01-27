@@ -25,6 +25,11 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>illusion-nms-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>illusion-legacy-api-v1</artifactId>
             <scope>runtime</scope>
         </dependency>
@@ -150,8 +155,8 @@
         </dependency>
 
         <dependency>
-            <groupId>me.filoghost.fcommons</groupId>
-            <artifactId>fcommons</artifactId>
+            <groupId>studio.magemonkey</groupId>
+            <artifactId>illusive-commons</artifactId>
         </dependency>
     </dependencies>
 

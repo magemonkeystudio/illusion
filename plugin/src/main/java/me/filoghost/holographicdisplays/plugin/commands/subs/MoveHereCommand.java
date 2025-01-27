@@ -14,8 +14,15 @@ import me.filoghost.holographicdisplays.plugin.commands.InternalHologramEditor;
 import me.filoghost.holographicdisplays.plugin.event.InternalHologramChangeEvent.ChangeType;
 import me.filoghost.holographicdisplays.plugin.format.ColorScheme;
 import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologram;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static me.filoghost.fcommons.command.CommandHelper.filterStartingWith;
 
 public class MoveHereCommand extends HologramSubCommand {
 
@@ -32,7 +39,7 @@ public class MoveHereCommand extends HologramSubCommand {
 
     @Override
     public void execute(CommandSender sender, String[] args, SubCommandContext context) throws CommandException {
-        Player player = CommandValidate.getPlayerSender(sender);
+        Player           player   = CommandValidate.getPlayerSender(sender);
         InternalHologram hologram = hologramEditor.getExistingHologram(args[0]);
 
         hologram.setPosition(Position.of(player));
@@ -40,6 +47,13 @@ public class MoveHereCommand extends HologramSubCommand {
 
         hologramEditor.teleportLookingDown(player, player.getLocation());
         player.sendMessage(ColorScheme.PRIMARY + "Hologram \"" + hologram.getName() + "\" moved to your position.");
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length > 1) return Collections.emptyList();
+
+        return filterStartingWith(args[args.length - 1], hologramEditor.getHolograms().stream().map(InternalHologram::getName).collect(Collectors.toList()));
     }
 
 }

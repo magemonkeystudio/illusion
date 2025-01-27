@@ -13,8 +13,10 @@ import me.filoghost.holographicdisplays.plugin.commands.InternalHologramEditor;
 import me.filoghost.holographicdisplays.plugin.format.ColorScheme;
 import me.filoghost.holographicdisplays.plugin.format.DisplayFormat;
 import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologram;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import java.util.Collections;
 import java.util.List;
 
 public class ListCommand extends HologramSubCommand {
@@ -60,6 +62,13 @@ public class ListCommand extends HologramSubCommand {
         if (page < totalPages) {
             DisplayFormat.sendTip(sender, "See the next page with /" + context.getRootLabel() + " list " + (page + 1));
         }
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length > 1) return Collections.emptyList();
+
+        return Collections.singletonList("1");
     }
 
 }

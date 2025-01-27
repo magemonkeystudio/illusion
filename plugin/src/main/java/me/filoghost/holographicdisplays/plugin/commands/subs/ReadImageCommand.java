@@ -12,7 +12,6 @@ import me.filoghost.fcommons.command.validation.CommandException;
 import me.filoghost.fcommons.command.validation.CommandValidate;
 import me.filoghost.fcommons.logging.Log;
 import me.filoghost.holographicdisplays.plugin.commands.InternalHologramEditor;
-import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologramLine;
 import me.filoghost.holographicdisplays.plugin.event.InternalHologramChangeEvent.ChangeType;
 import me.filoghost.holographicdisplays.plugin.format.ColorScheme;
 import me.filoghost.holographicdisplays.plugin.format.DisplayFormat;
@@ -20,7 +19,9 @@ import me.filoghost.holographicdisplays.plugin.image.ImageMessage;
 import me.filoghost.holographicdisplays.plugin.image.ImageReadException;
 import me.filoghost.holographicdisplays.plugin.image.ImageReader;
 import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologram;
+import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologramLine;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import java.awt.image.BufferedImage;
@@ -28,10 +29,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ReadImageCommand extends LineEditingCommand {
 
@@ -67,7 +66,7 @@ public class ReadImageCommand extends LineEditingCommand {
     @Override
     public void execute(CommandSender sender, String[] args, SubCommandContext context) throws CommandException {
         List<String> newArgs = new ArrayList<>(Arrays.asList(args));
-        boolean append = extractAppendFlag(newArgs);
+        boolean      append  = extractAppendFlag(newArgs);
         args = newArgs.toArray(new String[0]);
 
         InternalHologram hologram = hologramEditor.getExistingHologram(args[0]);
@@ -78,7 +77,7 @@ public class ReadImageCommand extends LineEditingCommand {
 
         boolean isUrl = false;
 
-        String fileName = args[1];
+        String        fileName = args[1];
         BufferedImage image;
 
         try {
@@ -102,8 +101,8 @@ public class ReadImageCommand extends LineEditingCommand {
             throw new CommandException("I/O error while reading the image. " + (isUrl ? "Is the URL valid?" : "Is it in use?"));
         }
 
-        ImageMessage imageMessage = new ImageMessage(image, width);
-        List<InternalHologramLine> newLines = new ArrayList<>();
+        ImageMessage               imageMessage = new ImageMessage(image, width);
+        List<InternalHologramLine> newLines     = new ArrayList<>();
         for (String newLine : imageMessage.getLines()) {
             newLines.add(hologramEditor.parseHologramLine(Colors.uncolorize(newLine)));
         }
@@ -139,6 +138,19 @@ public class ReadImageCommand extends LineEditingCommand {
         }
 
         return false;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            return hologramEditor.getHolograms().stream().map(InternalHologram::getName).collect(Collectors.toList());
+        } else if (args.length == 2) {
+            return Collections.singletonList("<image>");
+        } else if (args.length == 3) {
+            return Collections.singletonList("<width>");
+        }
+
+        return Collections.emptyList();
     }
 
 }

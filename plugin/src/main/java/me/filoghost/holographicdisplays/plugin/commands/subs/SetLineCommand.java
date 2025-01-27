@@ -11,11 +11,18 @@ import me.filoghost.fcommons.command.validation.CommandException;
 import me.filoghost.fcommons.command.validation.CommandValidate;
 import me.filoghost.holographicdisplays.plugin.commands.HologramCommandManager;
 import me.filoghost.holographicdisplays.plugin.commands.InternalHologramEditor;
-import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologramLine;
 import me.filoghost.holographicdisplays.plugin.event.InternalHologramChangeEvent.ChangeType;
 import me.filoghost.holographicdisplays.plugin.format.ColorScheme;
 import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologram;
+import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologramLine;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static me.filoghost.fcommons.command.CommandHelper.filterStartingWith;
 
 public class SetLineCommand extends LineEditingCommand implements QuickEditCommand {
 
@@ -34,10 +41,10 @@ public class SetLineCommand extends LineEditingCommand implements QuickEditComma
 
     @Override
     public void execute(CommandSender sender, String[] args, SubCommandContext context) throws CommandException {
-        InternalHologram hologram = hologramEditor.getExistingHologram(args[0]);
-        String serializedLine = Strings.joinFrom(" ", args, 2);
+        InternalHologram hologram       = hologramEditor.getExistingHologram(args[0]);
+        String           serializedLine = Strings.joinFrom(" ", args, 2);
 
-        int lineNumber = CommandValidate.parseInteger(args[1]);
+        int lineNumber  = CommandValidate.parseInteger(args[1]);
         int linesAmount = hologram.getLines().size();
 
         CommandValidate.check(lineNumber >= 1 && lineNumber <= linesAmount,
@@ -56,6 +63,19 @@ public class SetLineCommand extends LineEditingCommand implements QuickEditComma
     @Override
     public String getActionName() {
         return "Set";
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            return filterStartingWith(args[args.length - 1], hologramEditor.getHolograms().stream().map(InternalHologram::getName).collect(Collectors.toList()));
+        } else if (args.length == 2) {
+            return Collections.singletonList("1");
+        } else if (args.length == 3) {
+            return Collections.singletonList("<newText>");
+        }
+
+        return Collections.emptyList();
     }
 
 }

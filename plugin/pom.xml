@@ -49,8 +49,8 @@
         </dependency>
 
         <dependency>
-            <groupId>me.filoghost.fcommons</groupId>
-            <artifactId>fcommons</artifactId>
+            <groupId>studio.magemonkey</groupId>
+            <artifactId>illusive-commons</artifactId>
         </dependency>
     </dependencies>
 
@@ -131,7 +131,7 @@
                             <include>${project.groupId}:*</include>
                             <include>org.bstats</include>
                             <include>me.filoghost.updatechecker</include>
-                            <include>me.filoghost.fcommons</include>
+                            <include>studio.magemonkey</include>
                         </includes>
                     </artifactSet>
                     <filters>

@@ -12,8 +12,12 @@ import me.filoghost.holographicdisplays.plugin.event.HolographicDisplaysReloadEv
 import me.filoghost.holographicdisplays.plugin.format.ColorScheme;
 import me.filoghost.holographicdisplays.plugin.log.PrintableErrorCollector;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
+
+import java.util.Collections;
+import java.util.List;
 
 public class ReloadCommand extends HologramSubCommand {
 
@@ -42,6 +46,11 @@ public class ReloadCommand extends HologramSubCommand {
         }
 
         Bukkit.getPluginManager().callEvent(new HolographicDisplaysReloadEvent());
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        return Collections.emptyList();
     }
 
 }

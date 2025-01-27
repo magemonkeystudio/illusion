@@ -19,8 +19,8 @@
         </dependency>
 
         <dependency>
-            <groupId>me.filoghost.fcommons</groupId>
-            <artifactId>fcommons</artifactId>
+            <groupId>studio.magemonkey</groupId>
+            <artifactId>illusive-commons</artifactId>
         </dependency>
     </dependencies>
 

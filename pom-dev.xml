@@ -14,7 +14,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spigot-api.version>1.8-R0.1-SNAPSHOT</spigot-api.version>
-        <nms.version>3.0.8-SNAPSHOT</nms.version>
+        <nms.version>3.0.10-SNAPSHOT</nms.version>
         <nexus.url>https://s01.oss.sonatype.org</nexus.url>
     </properties>
 
@@ -291,8 +291,8 @@
             </dependency>
 
             <dependency>
-                <groupId>me.filoghost.fcommons</groupId>
-                <artifactId>fcommons</artifactId>
+                <groupId>studio.magemonkey</groupId>
+                <artifactId>illusive-commons</artifactId>
                 <version>1.2.8-SNAPSHOT</version>
             </dependency>
         </dependencies>

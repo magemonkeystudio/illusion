@@ -13,10 +13,12 @@ import me.filoghost.holographicdisplays.plugin.commands.HologramSubCommand;
 import me.filoghost.holographicdisplays.plugin.commands.InternalHologramEditor;
 import me.filoghost.holographicdisplays.plugin.format.DisplayFormat;
 import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologram;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class NearCommand extends HologramSubCommand {
@@ -35,7 +37,7 @@ public class NearCommand extends HologramSubCommand {
     @Override
     public void execute(CommandSender sender, String[] args, SubCommandContext context) throws CommandException {
         Player player = CommandValidate.getPlayerSender(sender);
-        int radius = CommandValidate.parseInteger(args[0]);
+        int    radius = CommandValidate.parseInteger(args[0]);
         CommandValidate.check(radius > 0, "Radius must be at least 1.");
 
         List<InternalHologram> nearHolograms = new ArrayList<>();
@@ -53,6 +55,14 @@ public class NearCommand extends HologramSubCommand {
         for (InternalHologram nearHologram : nearHolograms) {
             DisplayFormat.sendHologramSummary(player, nearHologram, false);
         }
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length != 1) {
+            return Collections.emptyList();
+        }
+        return Collections.singletonList("1");
     }
 
 }

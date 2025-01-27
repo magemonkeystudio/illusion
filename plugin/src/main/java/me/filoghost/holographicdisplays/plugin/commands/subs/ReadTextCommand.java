@@ -12,13 +12,14 @@ import me.filoghost.fcommons.logging.Log;
 import me.filoghost.holographicdisplays.plugin.commands.InternalHologramEditor;
 import me.filoghost.holographicdisplays.plugin.config.InternalHologramLineParser;
 import me.filoghost.holographicdisplays.plugin.config.InternalHologramLoadException;
-import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologramLine;
 import me.filoghost.holographicdisplays.plugin.event.InternalHologramChangeEvent.ChangeType;
 import me.filoghost.holographicdisplays.plugin.format.ColorScheme;
 import me.filoghost.holographicdisplays.plugin.format.DisplayFormat;
 import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologram;
+import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologramLine;
 import me.filoghost.holographicdisplays.plugin.util.FileUtils;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import java.io.IOException;
@@ -26,7 +27,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static me.filoghost.fcommons.command.CommandHelper.filterStartingWith;
 
 public class ReadTextCommand extends LineEditingCommand {
 
@@ -57,9 +62,9 @@ public class ReadTextCommand extends LineEditingCommand {
     @Override
     public void execute(CommandSender sender, String[] args, SubCommandContext context) throws CommandException {
         InternalHologram hologram = hologramEditor.getExistingHologram(args[0]);
-        String fileName = args[1];
+        String           fileName = args[1];
 
-        Path fileToRead = hologramEditor.getUserReadableFile(fileName);
+        Path         fileToRead = hologramEditor.getUserReadableFile(fileName);
         List<String> serializedLines;
 
         try {
@@ -94,6 +99,21 @@ public class ReadTextCommand extends LineEditingCommand {
         }
 
         sender.sendMessage(ColorScheme.PRIMARY + "Hologram content replaced with " + linesAmount + " lines from the file.");
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            List<String> hologramNames
+                    = hologramEditor.getHolograms().stream().map(InternalHologram::getName).collect(Collectors.toList());
+            return filterStartingWith(args[0], hologramNames);
+        }
+
+        if (args[args.length - 1].isEmpty()) {
+            return Collections.singletonList("<file>");
+        }
+
+        return Collections.emptyList();
     }
 
 }

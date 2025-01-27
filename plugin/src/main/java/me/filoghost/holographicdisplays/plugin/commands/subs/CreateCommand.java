@@ -17,8 +17,12 @@ import me.filoghost.holographicdisplays.plugin.format.ColorScheme;
 import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologram;
 import me.filoghost.holographicdisplays.plugin.internal.hologram.InternalHologramLine;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.Collections;
+import java.util.List;
 
 public class CreateCommand extends HologramSubCommand {
 
@@ -78,6 +82,15 @@ public class CreateCommand extends HologramSubCommand {
                     + " the hologram was automatically moved up."
                     + " If you use /" + context.getRootLabel() + " moveHere " + hologram.getName() + ","
                     + " the hologram will be moved to your feet)");
+        }
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            return Collections.singletonList("<name>");
+        } else {
+            return Collections.singletonList("<text>");
         }
     }
 
