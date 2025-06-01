@@ -14,7 +14,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spigot-api.version>1.8-R0.1-SNAPSHOT</spigot-api.version>
-        <nms.version>3.0.10-SNAPSHOT</nms.version>
+        <nms.version>3.0.12-SNAPSHOT</nms.version>
         <nexus.url>https://s01.oss.sonatype.org</nexus.url>
     </properties>
 
@@ -256,6 +256,12 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_21_r3</artifactId>
+                <version>${nms.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>illusion-nms-v1_21_r4</artifactId>
                 <version>${nms.version}</version>
             </dependency>
 

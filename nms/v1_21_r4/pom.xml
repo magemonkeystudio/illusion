@@ -9,8 +9,8 @@
         <version>3.0.12-SNAPSHOT</version>
     </parent>
 
-    <artifactId>illusion-nms-v1_18_r1</artifactId>
-    <name>Illusion NMS v1_18_R1</name>
+    <artifactId>illusion-nms-v1_21_r4</artifactId>
+    <name>Illusion NMS v1_21_R4</name>
 
     <dependencies>
         <dependency>
@@ -21,7 +21,21 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>1.18-R0.1-SNAPSHOT</version>
+            <version>1.21.5-R0.1-SNAPSHOT</version>
+            <!--<classifier>remapped-mojang</classifier>-->
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.21.5-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.joml</groupId>
+            <artifactId>joml</artifactId>
+            <version>1.10.8</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
