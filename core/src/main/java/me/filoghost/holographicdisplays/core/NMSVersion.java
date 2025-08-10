@@ -7,7 +7,6 @@ package me.filoghost.holographicdisplays.core;
 
 import me.filoghost.fcommons.logging.ErrorCollector;
 import me.filoghost.holographicdisplays.nms.common.NMSManager;
-import me.filoghost.holographicdisplays.nms.v1_21_R4.VersionNMSManager;
 import org.bukkit.Bukkit;
 
 import java.util.regex.Matcher;
@@ -49,7 +48,8 @@ public enum NMSVersion {
     /* 1.21   - 1.21.1 */ v1_21_R1(me.filoghost.holographicdisplays.nms.v1_21_R1.VersionNMSManager::new),
     /* 1.21.2 - 1.21.3 */ v1_21_R2(me.filoghost.holographicdisplays.nms.v1_21_R2.VersionNMSManager::new),
     /* 1.21.4          */ v1_21_R3(me.filoghost.holographicdisplays.nms.v1_21_R3.VersionNMSManager::new),
-    /* 1.21.5          */ v1_21_R4(VersionNMSManager::new),
+    /* 1.21.5          */ v1_21_R4(me.filoghost.holographicdisplays.nms.v1_21_R4.VersionNMSManager::new),
+    /* 1.21.6 - 1.21.8 */ v1_21_R5(me.filoghost.holographicdisplays.nms.v1_21_R5.VersionNMSManager::new),
     /* Other versions  */ UNKNOWN(NMSManagerFactory.unknownVersion());
 
     private static final NMSVersion CURRENT_VERSION = detectCurrentVersion();
@@ -96,6 +96,10 @@ public enum NMSVersion {
                     return v1_21_R3;
                 case "1.21.5-R0.1-SNAPSHOT":
                     return v1_21_R4;
+                case "1.21.6-R0.1-SNAPSHOT":
+                case "1.21.7-R0.1-SNAPSHOT":
+                case "1.21.8-R0.1-SNAPSHOT":
+                    return v1_21_R5;
                 default:
                     return UNKNOWN;
             }
