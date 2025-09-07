@@ -1,19 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>studio.magemonkey</groupId>
     <artifactId>illusion-parent</artifactId>
     <version>3.0.14-SNAPSHOT</version>
     <name>Illusion Parent</name>
     <packaging>pom</packaging>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spigot-api.version>1.8-R0.1-SNAPSHOT</spigot-api.version>
         <nms.version>3.0.13-SNAPSHOT</nms.version>
-        <nexus.url>https://central.sonatype.com</nexus.url>
+        <deploy.url>https://repo.travja.dev</deploy.url>
     </properties>
+
     <modules>
         <module>common</module>
         <module>api</module>
@@ -22,30 +25,17 @@
         <module>plugin</module>
         <module>example</module>
     </modules>
+
     <url>https://dev.bukkit.org/projects/holographic-displays</url>
-    <licenses>
-        <license>
-            <name>GNU General Public License, Version 3</name>
-            <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-    <developers>
-        <developer>
-            <name>MageMonkeyStudio</name>
-            <organization>MageMonkeyStudio</organization>
-            <organizationUrl>https://magemonkey.studio</organizationUrl>
-        </developer>
-    </developers>
-    <scm>
-        <connection>scm:git:git://github.com/magemonkeystudio/${project.artifactId}.git</connection>
-        <developerConnection>scm:git:ssh://github.com:magemonkeystudio/${project.artifactId}.git</developerConnection>
-        <url>https://github.com/magemonkeystudio/${project.artifactId}</url>
-    </scm>
+
     <repositories>
         <repository>
-            <id>sonatype</id>
-            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+            <id>magemonkey-releases</id>
+            <url>https://repo.travja.dev/releases</url>
+        </repository>
+        <repository>
+            <id>magemonkey-snapshots</id>
+            <url>https://repo.travja.dev/snapshots</url>
         </repository>
         <repository>
             <id>spigot-repo</id>
@@ -242,7 +232,7 @@
             <dependency>
                 <groupId>me.filoghost.updatechecker</groupId>
                 <artifactId>updatechecker</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
             </dependency>
             <dependency>
                 <groupId>studio.magemonkey</groupId>
@@ -255,19 +245,19 @@
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>26.0.1</version>
+            <version>26.0.2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.7.2</version>
+            <version>5.13.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.26.3</version>
+            <version>3.27.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -284,7 +274,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.2.0</version>
+                    <version>3.4.2</version>
                     <configuration>
                         <archive>
                             <addMavenDescriptor>false</addMavenDescriptor>
@@ -297,12 +287,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>3.9.1</version>
+                    <version>3.21.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.8.0</version>
+                    <version>3.9.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -332,7 +322,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>3.2.0</version>
+                    <version>3.6.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -342,12 +332,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.6.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.commonjava.maven.plugins</groupId>
                     <artifactId>directory-maven-plugin</artifactId>
-                    <version>0.3.1</version>
+                    <version>1.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -357,7 +347,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.5.2</version>
+                    <version>3.5.3</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -372,7 +362,6 @@
                         </goals>
                         <configuration>
                             <rules>
-<!--                                <reactorModuleConvergence/>-->
                                 <requireMavenVersion>
                                     <version>[3.6.0,)</version>
                                 </requireMavenVersion>
@@ -408,7 +397,7 @@
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
                         <artifactId>checkstyle</artifactId>
-                        <version>10.21.0</version>
+                        <version>11.0.0</version>
                     </dependency>
                 </dependencies>
                 <configuration>
@@ -442,17 +431,6 @@
             </activation>
             <build>
                 <plugins>
-                    <plugin>
-                        <groupId>org.sonatype.central</groupId>
-                        <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>0.8.0</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <publishingServerId>central</publishingServerId>
-                            <autoPublish>true</autoPublish>
-                            <waitUntil>published</waitUntil>
-                        </configuration>
-                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
@@ -501,7 +479,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.2.4</version>
+                        <version>3.2.8</version>
                         <executions>
                             <execution>
                                 <phase>verify</phase>
@@ -536,4 +514,37 @@
             </plugin>
         </plugins>
     </reporting>
+
+    <licenses>
+        <license>
+            <name>GNU General Public License, Version 3</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>MageMonkeyStudio</name>
+            <organization>MageMonkeyStudio</organization>
+            <organizationUrl>https://magemonkey.studio</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/magemonkeystudio/${project.artifactId}.git</connection>
+        <developerConnection>scm:git:ssh://github.com:magemonkeystudio/${project.artifactId}.git</developerConnection>
+        <url>https://github.com/magemonkeystudio/${project.artifactId}</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>magemonkey-repo</id>
+            <url>${deploy.url}/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>magemonkey-repo</id>
+            <url>${deploy.url}/releases</url>
+        </repository>
+    </distributionManagement>
 </project>
