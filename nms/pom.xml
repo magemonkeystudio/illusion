@@ -5,11 +5,11 @@
     <parent>
         <groupId>studio.magemonkey</groupId>
         <artifactId>illusion-parent</artifactId>
-        <version>3.0.13-SNAPSHOT</version>
-        <relativePath/>
+        <version>3.0.14-SNAPSHOT</version>
+<!--        <relativePath/>-->
     </parent>
     <artifactId>illusion-nms</artifactId>
-    <version>3.0.13-SNAPSHOT</version>
+    <version>3.0.14-SNAPSHOT</version>
     <name>Illusion NMS</name>
     <packaging>pom</packaging>
 
@@ -26,10 +26,6 @@
 
     <modules>
         <module>common</module>
-        <module>v1_8_r3</module>
-        <module>v1_9_r2</module>
-        <module>v1_10_r1</module>
-        <module>v1_11_r1</module>
         <module>v1_12_r1</module>
         <module>v1_13_r2</module>
         <module>v1_14_r1</module>

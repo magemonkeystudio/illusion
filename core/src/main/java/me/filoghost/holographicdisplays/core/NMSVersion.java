@@ -20,13 +20,6 @@ public enum NMSVersion {
 
     // Not using shorter method reference syntax here because it initializes the class, causing a ClassNotFoundException
 
-    /* 1.8 - 1.8.2     */ v1_8_R1(NMSManagerFactory.outdatedVersion("1.8.4")),
-    /* 1.8.3           */ v1_8_R2(NMSManagerFactory.outdatedVersion("1.8.4")),
-    /* 1.8.4 - 1.8.9   */ v1_8_R3(me.filoghost.holographicdisplays.nms.v1_8_R3.VersionNMSManager::new),
-    /* 1.9 - 1.9.3     */ v1_9_R1(NMSManagerFactory.outdatedVersion("1.9.4")),
-    /* 1.9.4           */ v1_9_R2(me.filoghost.holographicdisplays.nms.v1_9_R2.VersionNMSManager::new),
-    /* 1.10 - 1.10.2   */ v1_10_R1(me.filoghost.holographicdisplays.nms.v1_10_R1.VersionNMSManager::new),
-    /* 1.11 - 1.11.2   */ v1_11_R1(me.filoghost.holographicdisplays.nms.v1_11_R1.VersionNMSManager::new),
     /* 1.12 - 1.12.2   */ v1_12_R1(me.filoghost.holographicdisplays.nms.v1_12_R1.VersionNMSManager::new),
     /* 1.13            */ v1_13_R1(NMSManagerFactory.outdatedVersion("1.13.1")),
     /* 1.13.1 - 1.13.2 */ v1_13_R2(me.filoghost.holographicdisplays.nms.v1_13_R2.VersionNMSManager::new),
