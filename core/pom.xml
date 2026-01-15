@@ -118,5 +118,13 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>illusion-nms-v1_21_r5</artifactId>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>illusion-nms-v1_21_r6</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>illusion-nms-v1_21_r7</artifactId>
+        </dependency>
     </dependencies>
 </project>

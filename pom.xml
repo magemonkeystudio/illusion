@@ -13,7 +13,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spigot-api.version>1.12-R0.1-SNAPSHOT</spigot-api.version>
-        <nms.version>3.0.14-SNAPSHOT</nms.version>
+        <nms.version>3.0.15-SNAPSHOT</nms.version>
         <deploy.url>https://repo.travja.dev</deploy.url>
     </properties>
 
@@ -185,6 +185,16 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>illusion-nms-v1_21_r5</artifactId>
+                <version>${nms.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>illusion-nms-v1_21_r6</artifactId>
+                <version>${nms.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>illusion-nms-v1_21_r7</artifactId>
                 <version>${nms.version}</version>
             </dependency>
             <dependency>
