@@ -7,7 +7,7 @@ package me.filoghost.holographicdisplays.core;
 
 import me.filoghost.fcommons.logging.ErrorCollector;
 import me.filoghost.holographicdisplays.nms.common.NMSManager;
-import me.filoghost.holographicdisplays.nms.v1_21_R7.VersionNMSManager;
+import me.filoghost.holographicdisplays.nms.v26_2.VersionNMSManager;
 import org.bukkit.Bukkit;
 
 import java.util.regex.Matcher;
@@ -45,7 +45,9 @@ public enum NMSVersion {
     /* 1.21.5          */ v1_21_R4(me.filoghost.holographicdisplays.nms.v1_21_R4.VersionNMSManager::new),
     /* 1.21.6 - 1.21.8 */ v1_21_R5(me.filoghost.holographicdisplays.nms.v1_21_R5.VersionNMSManager::new),
     /* 1.21.9- 1.21.10 */ v1_21_R6(me.filoghost.holographicdisplays.nms.v1_21_R6.VersionNMSManager::new),
-    /* 1.21.11 - X     */ v1_21_R7(VersionNMSManager::new),
+    /* 1.21.11         */ v1_21_R7(me.filoghost.holographicdisplays.nms.v1_21_R7.VersionNMSManager::new),
+    /* 26.1.2          */ v26_1(me.filoghost.holographicdisplays.nms.v26_1.VersionNMSManager::new),
+    /* 26.2 - X        */ v26_2(VersionNMSManager::new),
     /* Other versions  */ UNKNOWN(NMSManagerFactory.unknownVersion());
 
     private static final NMSVersion CURRENT_VERSION = detectCurrentVersion();
@@ -67,8 +69,37 @@ public enum NMSVersion {
     }
 
     private static NMSVersion detectCurrentVersion() {
-        String bukkitVersion = Bukkit.getServer().getBukkitVersion();
-        int    majorVersion  = Integer.parseInt(bukkitVersion.split("[.-]")[1]);
+        String   bukkitVersion    = Bukkit.getServer().getBukkitVersion();
+        String[] versionParts     = bukkitVersion.split("[.-]");
+        int      firstVersionPart = Integer.parseInt(versionParts[0]);
+
+        if (firstVersionPart != 1) {
+            // Starting with the 2026 release cycle, Minecraft dropped the "1.x" versioning scheme in favor of a
+            // year-based one (e.g. "26.1", "26.2"), and CraftBukkit no longer relocates NMS/CraftBukkit classes
+            // into per-version packages, so there's nothing to match with the regex fallback below either.
+            //
+            // Spigot reports this version as "<version>-R0.1-SNAPSHOT", same as before, but Paper instead reports
+            // "<version>.build.<n>-<channel>" (e.g. "26.2.build.62-beta"), where the build number and channel
+            // change on every release, so only the leading "<version>" part can be matched reliably.
+            String normalizedVersion = bukkitVersion;
+            int buildSuffixIndex = normalizedVersion.indexOf(".build.");
+            if (buildSuffixIndex != -1) {
+                normalizedVersion = normalizedVersion.substring(0, buildSuffixIndex);
+            } else if (normalizedVersion.endsWith("-R0.1-SNAPSHOT")) {
+                normalizedVersion = normalizedVersion.substring(0, normalizedVersion.length() - "-R0.1-SNAPSHOT".length());
+            }
+
+            switch (normalizedVersion) {
+                case "26.1.2":
+                    return v26_1;
+                case "26.2":
+                    return v26_2;
+                default:
+                    return UNKNOWN;
+            }
+        }
+
+        int majorVersion = Integer.parseInt(versionParts[1]);
         if (majorVersion >= 20) {
             switch (bukkitVersion) {
                 case "1.20-R0.1-SNAPSHOT":

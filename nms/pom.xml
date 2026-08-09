@@ -48,6 +48,8 @@
         <module>v1_21_r5</module>
         <module>v1_21_r6</module>
         <module>v1_21_r7</module>
+        <module>v26_1</module>
+        <module>v26_2</module>
     </modules>
 
     <dependencies>
