@@ -35,7 +35,7 @@ import org.bukkit.ChatColor;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-// At some point, we should probably rename this
+// At some point, we should probably rename this.
 public class HolographicDisplays extends FCommonsPlugin {
 
     private static HolographicDisplays instance;
