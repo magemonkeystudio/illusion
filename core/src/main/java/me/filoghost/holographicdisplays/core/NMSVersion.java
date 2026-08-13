@@ -10,9 +10,6 @@ import me.filoghost.holographicdisplays.nms.common.NMSManager;
 import me.filoghost.holographicdisplays.nms.v26_2.VersionNMSManager;
 import org.bukkit.Bukkit;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * The package name used by version-dependent Bukkit classes and NMS classes (before 1.17), for example "v1_13_R2".
  * Different versions usually imply internal changes that require multiple implementations.
@@ -69,25 +66,19 @@ public enum NMSVersion {
     }
 
     private static NMSVersion detectCurrentVersion() {
-        String   bukkitVersion    = Bukkit.getServer().getBukkitVersion();
+        return detectVersion(
+                Bukkit.getServer().getBukkitVersion(),
+                Bukkit.getServer().getClass().getPackage().getName());
+    }
+
+    private static NMSVersion detectVersion(String bukkitVersion, String nmsPackageName) {
         String[] versionParts     = bukkitVersion.split("[.-]");
         int      firstVersionPart = Integer.parseInt(versionParts[0]);
 
         if (firstVersionPart != 1) {
-            // Starting with the 2026 release cycle, Minecraft dropped the "1.x" versioning scheme in favor of a
-            // year-based one (e.g. "26.1", "26.2"), and CraftBukkit no longer relocates NMS/CraftBukkit classes
-            // into per-version packages, so there's nothing to match with the regex fallback below either.
-            //
-            // Spigot reports this version as "<version>-R0.1-SNAPSHOT", same as before, but Paper instead reports
-            // "<version>.build.<n>-<channel>" (e.g. "26.2.build.62-beta"), where the build number and channel
-            // change on every release, so only the leading "<version>" part can be matched reliably.
-            String normalizedVersion = bukkitVersion;
-            int buildSuffixIndex = normalizedVersion.indexOf(".build.");
-            if (buildSuffixIndex != -1) {
-                normalizedVersion = normalizedVersion.substring(0, buildSuffixIndex);
-            } else if (normalizedVersion.endsWith("-R0.1-SNAPSHOT")) {
-                normalizedVersion = normalizedVersion.substring(0, normalizedVersion.length() - "-R0.1-SNAPSHOT".length());
-            }
+            // CraftBukkit no longer relocates NMS/CraftBukkit classes into per-version packages starting with the
+            // 2026 release cycle, so there's nothing to match with the regex fallback below either.
+            String normalizedVersion = NMSVersionStringParser.normalizeYearBasedVersion(bukkitVersion);
 
             switch (normalizedVersion) {
                 case "26.1.2":
@@ -137,13 +128,11 @@ public enum NMSVersion {
             }
         }
 
-        Matcher matcher =
-                Pattern.compile("v\\d+_\\d+_R\\d+").matcher(Bukkit.getServer().getClass().getPackage().getName());
-        if (!matcher.find()) {
+        String nmsVersionName = NMSVersionStringParser.extractLegacyNmsVersionName(nmsPackageName);
+        if (nmsVersionName == null) {
             return UNKNOWN;
         }
 
-        String nmsVersionName = matcher.group();
         try {
             return valueOf(nmsVersionName);
         } catch (IllegalArgumentException e) {

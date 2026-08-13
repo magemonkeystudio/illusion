@@ -32,28 +32,31 @@ import org.bukkit.plugin.Plugin;
 
 public class HolographicDisplaysCore {
 
-    private NMSManager nmsManager;
+    private NMSManager         nmsManager;
     private LineTrackerManager lineTrackerManager;
     private APIHologramManager apiHologramManager;
-    private V2HologramManager v2HologramManager;
+    private V2HologramManager  v2HologramManager;
 
     public void enable(Plugin plugin, ErrorCollector errorCollector) throws PluginEnableException {
         try {
             nmsManager = NMSVersion.getCurrent().createNMSManager(errorCollector);
         } catch (UnknownVersionException e) {
-            throw new PluginEnableException("Holographic Displays only supports Spigot from 1.8 to 1.21.4");
+            throw new PluginEnableException(
+                    "Holographic Displays only supports Spigot from 1.8 to 26.2, but your server is running "
+                            + Bukkit.getServer().getVersion());
         } catch (OutdatedVersionException e) {
-            throw new PluginEnableException("Holographic Displays only supports " + e.getMinimumSupportedVersion() + " and above");
+            throw new PluginEnableException(
+                    "Holographic Displays only supports " + e.getMinimumSupportedVersion() + " and above");
         } catch (Throwable t) {
             throw new PluginEnableException(t, "Couldn't initialize the NMS manager.");
         }
 
         PacketSenderExecutor.start();
 
-        PlaceholderRegistry placeholderRegistry = new PlaceholderRegistry();
-        TickClock tickClock = new TickClock();
-        ActivePlaceholderTracker placeholderTracker = new ActivePlaceholderTracker(placeholderRegistry, tickClock);
-        LineClickListener lineClickListener = new LineClickListener();
+        PlaceholderRegistry      placeholderRegistry = new PlaceholderRegistry();
+        TickClock                tickClock           = new TickClock();
+        ActivePlaceholderTracker placeholderTracker  = new ActivePlaceholderTracker(placeholderRegistry, tickClock);
+        LineClickListener        lineClickListener   = new LineClickListener();
         lineTrackerManager = new LineTrackerManager(nmsManager, placeholderTracker, lineClickListener);
         apiHologramManager = new APIHologramManager(lineTrackerManager);
         v2HologramManager = new V2HologramManager(lineTrackerManager);
@@ -68,8 +71,10 @@ public class HolographicDisplaysCore {
         Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, tickingTask, 0, 1);
 
         // Listeners
-        Bukkit.getPluginManager().registerEvents(new PlayerListener(nmsManager, lineClickListener, tickingTask), plugin);
-        Bukkit.getPluginManager().registerEvents(new ChunkListener(plugin, apiHologramManager, v2HologramManager), plugin);
+        Bukkit.getPluginManager()
+                .registerEvents(new PlayerListener(nmsManager, lineClickListener, tickingTask), plugin);
+        Bukkit.getPluginManager()
+                .registerEvents(new ChunkListener(plugin, apiHologramManager, v2HologramManager), plugin);
 
         // Enable the APIs
         HolographicDisplaysAPIProvider.setImplementation(
