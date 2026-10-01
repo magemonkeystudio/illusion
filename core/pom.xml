@@ -134,5 +134,9 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>illusion-nms-v26_2</artifactId>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>illusion-nms-v26_3</artifactId>
+        </dependency>
     </dependencies>
 </project>
