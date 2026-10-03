@@ -26,9 +26,11 @@ class NMSVersionStringParserTest {
                 // Spigot format, unchanged since before the year-based versioning switch
                 Arguments.of("26.1.2-R0.1-SNAPSHOT", "26.1.2"),
                 Arguments.of("26.2-R0.1-SNAPSHOT", "26.2"),
+                Arguments.of("26.3-R0.1-SNAPSHOT", "26.3"),
 
                 // Paper release format: "<version>.build.<n>-<channel>"
                 Arguments.of("26.2.build.62-beta", "26.2"),
+                Arguments.of("26.3.build.1-alpha", "26.3"),
                 Arguments.of("26.1.2.build.5-default", "26.1.2"),
 
                 // Paper development build format: "<version>-DEV-<branch>@<commit>"

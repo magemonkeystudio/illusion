@@ -50,6 +50,7 @@
         <module>v1_21_r7</module>
         <module>v26_1</module>
         <module>v26_2</module>
+        <module>v26_3</module>
     </modules>
 
     <dependencies>
