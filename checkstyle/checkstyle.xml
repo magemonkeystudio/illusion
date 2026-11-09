@@ -116,7 +116,6 @@
         <module name="JavadocContentLocation"/>
         <module name="JavadocMissingLeadingAsterisk"/>
         <module name="JavadocMissingWhitespaceAfterAsterisk"/>
-        <module name="JavadocStyle"/>
         <module name="JavadocTagContinuationIndentation"/>
         <module name="NonEmptyAtclauseDescription"/>
         <module name="RequireEmptyLineBeforeBlockTagGroup"/>
